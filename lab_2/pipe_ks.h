@@ -8,10 +8,9 @@
 
 using namespace std;
 
-// Вспомогательные функции для проверки ввода
-void check_int(int& x);
-void check_bool(bool& x);
-void check_double(double& x);
+// Шаблонная функция для проверки ввода
+template <typename T>
+void check_input(T& x, const string& prompt);
 
 // Класс Pipe
 class Pipe {
