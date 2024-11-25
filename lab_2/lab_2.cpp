@@ -1,6 +1,5 @@
 ﻿#include "pipe_ks.h"
 #include "logger.h"
-#include <vector>
 
 int main() {
     vector<Pipe> pipes;  // Вектор для хранения труб
@@ -18,133 +17,120 @@ int main() {
         case 1: {
             Pipe newPipe;
             newPipe.input();
-            pipes.push_back(newPipe);  // Добавляем новую трубу в вектор
-            logger.log("Добавлена новая труба.");
+            pipes.push_back(newPipe);
+            logger.log("Добавлена новая труба с ID " + to_string(newPipe.getId()) + ".");
             break;
         }
         case 2: {
             KS newKS;
             newKS.input();
-            kss.push_back(newKS);  // Добавляем новую КС в вектор
-            logger.log("Добавлена новая КС.");
+            kss.push_back(newKS);
+            logger.log("Добавлена новая КС с ID " + to_string(newKS.getId()) + ".");
             break;
         }
-        case 3:
-            cout << "Трубы:\n";
-            for (size_t i = 0; i < pipes.size(); ++i) {
-                cout << "Труба " << i + 1 << ":\n";
-                pipes[i].output();
-            }
-            cout << "\nКС:\n";
-            for (size_t i = 0; i < kss.size(); ++i) {
-                cout << "КС " << i + 1 << ":\n";
-                kss[i].output();
-            }
-            logger.log("Просмотр всех объектов.");
+        case 3: {
+            for (const auto& pipe : pipes) pipe.output();
+            for (const auto& ks : kss) ks.output();
             break;
+        }
         case 4: {
-            int pipeIndex;
-            cout << "Введите номер трубы для редактирования: ";
-            cin >> pipeIndex;
-            if (pipeIndex > 0 && pipeIndex <= pipes.size()) {
-                pipes[pipeIndex - 1].toggleRepair();
-                logger.log("Изменен статус ремонта трубы " + to_string(pipeIndex) + ".");
+            int id;
+            cout << "Введите ID трубы для редактирования: ";
+            cin >> id;
+            auto it = find_if(pipes.begin(), pipes.end(), [id](const Pipe& p) { return p.getId() == id; });
+            if (it != pipes.end()) {
+                it->toggleRepair();
+                logger.log("Изменён статус ремонта трубы с ID " + to_string(id) + ".");
             }
             else {
-                cout << "Неверный номер трубы." << endl;
-                logger.log("Ошибка: неверный номер трубы для редактирования.");
+                cout << "Труба с таким ID не найдена." << endl;
+                logger.log("Ошибка: неверный ID трубы.");
             }
             break;
         }
         case 5: {
-            int ksIndex;
-            cout << "Введите номер КС для редактирования: ";
-            cin >> ksIndex;
-            if (ksIndex > 0 && ksIndex <= kss.size()) {
-                kss[ksIndex - 1].edit();
-                logger.log("Отредактирована КС " + to_string(ksIndex) + ".");
+            int id;
+            cout << "Введите ID КС для редактирования: ";
+            cin >> id;
+            auto it = find_if(kss.begin(), kss.end(), [id](const KS& ks) { return ks.getId() == id; });
+            if (it != kss.end()) {
+                it->edit();
+                logger.log("Изменена КС с ID " + to_string(id) + ".");
             }
             else {
-                cout << "Неверный номер КС." << endl;
-                logger.log("Ошибка: неверный номер КС для редактирования.");
+                cout << "КС с таким ID не найдена." << endl;
+                logger.log("Ошибка: неверный ID КС.");
             }
             break;
         }
         case 6: {
-            int pipeIndex;
-            cout << "Введите номер трубы для удаления: ";
-            cin >> pipeIndex;
-            if (pipeIndex > 0 && pipeIndex <= pipes.size()) {
-                pipes.erase(pipes.begin() + pipeIndex - 1);
-                logger.log("Удалена труба " + to_string(pipeIndex) + ".");
+            int id;
+            cout << "Введите ID трубы для удаления: ";
+            cin >> id;
+            auto it = remove_if(pipes.begin(), pipes.end(), [id](const Pipe& p) { return p.getId() == id; });
+            if (it != pipes.end()) {
+                pipes.erase(it, pipes.end());
+                logger.log("Удалена труба с ID " + to_string(id) + ".");
             }
             else {
-                cout << "Неверный номер трубы." << endl;
-                logger.log("Ошибка: неверный номер трубы для удаления.");
+                cout << "Труба с таким ID не найдена." << endl;
+                logger.log("Ошибка: неверный ID трубы.");
             }
             break;
         }
         case 7: {
-            int ksIndex;
-            cout << "Введите номер КС для удаления: ";
-            cin >> ksIndex;
-            if (ksIndex > 0 && ksIndex <= kss.size()) {
-                kss.erase(kss.begin() + ksIndex - 1);
-                logger.log("Удалена КС " + to_string(ksIndex) + ".");
+            int id;
+            cout << "Введите ID КС для удаления: ";
+            cin >> id;
+            auto it = remove_if(kss.begin(), kss.end(), [id](const KS& ks) { return ks.getId() == id; });
+            if (it != kss.end()) {
+                kss.erase(it, kss.end());
+                logger.log("Удалена КС с ID " + to_string(id) + ".");
             }
             else {
-                cout << "Неверный номер КС." << endl;
-                logger.log("Ошибка: неверный номер КС для удаления.");
+                cout << "КС с таким ID не найдена." << endl;
+                logger.log("Ошибка: неверный ID КС.");
             }
             break;
         }
         case 8: {
-            ofstream file("output.txt");
-            if (file.is_open()) {
-                for (const auto& pipe : pipes) {
-                    file << pipe;
-                }
-                for (const auto& ks : kss) {
-                    file << ks;
-                }
-                file.close();
-                logger.log("Данные сохранены в output.txt.");
-            }
-            else {
-                cout << "Не получается открыть файл" << endl;
-                logger.log("Ошибка при открытии файла output.txt для сохранения.");
-            }
+            ofstream file("data.txt");
+            for (const auto& pipe : pipes) file << pipe;
+            for (const auto& ks : kss) file << ks;
+            file.close();
+            logger.log("Данные сохранены.");
             break;
         }
         case 9: {
-            ifstream file("output.txt");
-            if (file.is_open()) {
-                pipes.clear();
-                kss.clear();
-                Pipe tempPipe;
-                KS tempKS;
-                while (file >> tempPipe) {
-                    pipes.push_back(tempPipe);
+            ifstream file("data.txt");
+            pipes.clear();
+            kss.clear();
+            while (!file.eof()) {
+                string type;
+                getline(file, type);
+                if (type == "Труба") {
+                    Pipe pipe;
+                    file >> pipe;
+                    pipes.push_back(pipe);
                 }
-                while (file >> tempKS) {
-                    kss.push_back(tempKS);
+                else if (type == "КС") {
+                    KS ks;
+                    file >> ks;
+                    kss.push_back(ks);
                 }
-                file.close();
-                logger.log("Данные загружены из output.txt.");
             }
-            else {
-                cout << "Не получается открыть файл" << endl;
-                logger.log("Ошибка при открытии файла output.txt для загрузки.");
-            }
+            file.close();
+            logger.log("Данные загружены.");
             break;
         }
         case 0:
-            logger.log("Завершение программы.");
+            logger.log("Завершение работы программы.");
             return 0;
         default:
-            cout << "Неверная команда!" << endl;
-            logger.log("Введена неверная команда.");
+            cout << "Неверная команда" << endl;
+            logger.log("Ошибка: неверная команда.");
         }
     }
 }
+
 

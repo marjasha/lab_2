@@ -1,5 +1,9 @@
 #include "pipe_ks.h"
 
+// Инициализация статических полей
+int Pipe::nextId = 1;
+int KS::nextId = 1;
+
 // Реализация универсальной функции проверки ввода
 template <typename T>
 void check_input(T& x, const string& prompt) {
@@ -15,7 +19,7 @@ void check_input(T& x, const string& prompt) {
 }
 
 // Реализация методов класса Pipe
-Pipe::Pipe() : length(0), diametr(0), repair(false) {}
+Pipe::Pipe() : id(nextId++), length(0), diametr(0), repair(false) {}
 
 void Pipe::input() {
     cout << "Введите название трубы" << endl;
@@ -32,6 +36,7 @@ void Pipe::output() const {
         cout << "Нет данных" << endl;
     }
     else {
+        cout << "ID: " << id << endl;
         cout << "Имя: " << kilometr << endl;
         cout << "Длина: " << length << endl;
         cout << "Диаметр: " << diametr << endl;
@@ -50,6 +55,7 @@ ofstream& operator<<(ofstream& file, const Pipe& p) {
     }
     else {
         file << "Труба" << endl;
+        file << "ID " << p.id << endl;
         file << "Имя " << p.kilometr << endl;
         file << "Длина " << p.length << endl;
         file << "Диаметр " << p.diametr << endl;
@@ -66,6 +72,8 @@ ifstream& operator>>(ifstream& file, Pipe& p) {
     }
     else {
         getline(file, line);
+        istringstream(line.substr(3)) >> p.id;
+        getline(file, line);
         p.kilometr = line.substr(4);
         getline(file, line);
         istringstream(line.substr(7)) >> p.length;
@@ -78,7 +86,7 @@ ifstream& operator>>(ifstream& file, Pipe& p) {
 }
 
 // Реализация методов класса KS
-KS::KS() : workshops(0), workshops_in_work(0), eff(0.0) {}
+KS::KS() : id(nextId++), workshops(0), workshops_in_work(0), eff(0.0) {}
 
 void KS::input() {
     cout << "Введите название КС" << endl;
@@ -101,6 +109,7 @@ void KS::output() const {
         cout << "Нет данных" << endl;
     }
     else {
+        cout << "ID: " << id << endl;
         cout << "Имя: " << name << endl;
         cout << "Количество цехов: " << workshops << endl;
         cout << "Количество цехов в работе: " << workshops_in_work << endl;
@@ -125,6 +134,7 @@ ofstream& operator<<(ofstream& file, const KS& ks) {
     }
     else {
         file << "КС" << endl;
+        file << "ID " << ks.id << endl;
         file << "Имя " << ks.name << endl;
         file << "Количество цехов " << ks.workshops << endl;
         file << "Количество цехов в работе " << ks.workshops_in_work << endl;
@@ -141,6 +151,8 @@ ifstream& operator>>(ifstream& file, KS& ks) {
     }
     else {
         getline(file, line);
+        istringstream(line.substr(3)) >> ks.id;
+        getline(file, line);
         ks.name = line.substr(4);
         getline(file, line);
         istringstream(line.substr(17)) >> ks.workshops;
@@ -151,4 +163,5 @@ ifstream& operator>>(ifstream& file, KS& ks) {
     }
     return file;
 }
+
 
