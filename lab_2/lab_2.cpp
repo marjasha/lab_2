@@ -1,6 +1,32 @@
 ﻿#include "pipe_ks.h"
 #include "logger.h"
 
+void searchPipeByName(const vector<Pipe>& pipes, const string& nameFilter) {
+    bool found = false;
+    for (const auto& pipe : pipes) {
+        if (pipe.getName() == nameFilter) {
+            pipe.output();
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "Трубы с именем \"" << nameFilter << "\" не найдены." << endl;
+    }
+}
+
+void searchPipeByRepairStatus(const vector<Pipe>& pipes, bool repairStatus) {
+    bool found = false;
+    for (const auto& pipe : pipes) {
+        if (pipe.isInRepair() == repairStatus) {
+            pipe.output();
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "Трубы с признаком ремонта \"" << (repairStatus ? "в ремонте" : "не в ремонте") << "\" не найдены." << endl;
+    }
+}
+
 int main() {
     vector<Pipe> pipes;  // Вектор для хранения труб
     vector<KS> kss;      // Вектор для хранения КС
@@ -9,7 +35,7 @@ int main() {
 
     setlocale(LC_ALL, "");
     while (true) {
-        cout << "Введите:\n1 - Добавить трубу\n2 - Добавить КС\n3 - Просмотр всех объектов\n4 - Редактировать трубу\n5 - Редактировать КС\n6 - Удалить трубу\n7 - Удалить КС\n8 - Сохранить\n9 - Загрузить\n0 - Выход\n";
+        cout << "Введите:\n1 - Добавить трубу\n2 - Добавить КС\n3 - Просмотр всех объектов\n4 - Редактировать трубу\n5 - Редактировать КС\n6 - Удалить трубу\n7 - Удалить КС\n8 - Сохранить\n9 - Загрузить\n10 - Поиск труб\n0 - Выход\n";
         cin >> command;
         logger.log("Выбрана команда: " + to_string(command));
 
@@ -123,6 +149,29 @@ int main() {
             logger.log("Данные загружены.");
             break;
         }
+        case 10: {
+            cout << "Выберите фильтр для поиска:\n1 - По названию\n2 - По признаку \"в ремонте\"\n";
+            int searchCommand;
+            cin >> searchCommand;
+
+            if (searchCommand == 1) {
+                string nameFilter;
+                cout << "Введите название трубы: ";
+                cin.ignore();
+                getline(cin, nameFilter);
+                searchPipeByName(pipes, nameFilter);
+            }
+            else if (searchCommand == 2) {
+                bool repairStatus;
+                cout << "Введите 1 для поиска труб в ремонте или 0 для не в ремонте: ";
+                cin >> repairStatus;
+                searchPipeByRepairStatus(pipes, repairStatus);
+            }
+            else {
+                cout << "Неверный выбор фильтра." << endl;
+            }
+            break;
+        }
         case 0:
             logger.log("Завершение работы программы.");
             return 0;
@@ -132,5 +181,3 @@ int main() {
         }
     }
 }
-
-

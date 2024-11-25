@@ -29,6 +29,9 @@ public:
     void input();
     void output() const;
     void toggleRepair();
+
+    string getName() const { return kilometr; }
+    bool isInRepair() const { return repair; }
     int getId() const { return id; }
 
     friend ofstream& operator<<(ofstream& file, const Pipe& p);
@@ -50,6 +53,8 @@ public:
     void input();
     void output() const;
     void edit();
+
+    string getName() const { return name; }
     int getId() const { return id; }
 
     friend ofstream& operator<<(ofstream& file, const KS& ks);
@@ -57,4 +62,3 @@ public:
 };
 
 #endif
-
