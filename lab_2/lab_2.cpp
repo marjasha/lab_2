@@ -9,7 +9,21 @@ int main() {
 
     setlocale(LC_ALL, "");
     while (true) {
-        cout << "Введите:\n1 - Добавить трубу\n2 - Добавить КС\n3 - Просмотр всех объектов\n4 - Редактировать трубу\n5 - Редактировать КС\n6 - Удалить трубу\n7 - Удалить КС\n8 - Сохранить\n9 - Загрузить\n10 - Поиск труб\n11 - Поиск КС\n0 - Выход\n";
+        cout << "Введите:\n"
+            << "1 - Добавить трубу\n"
+            << "2 - Добавить КС\n"
+            << "3 - Просмотр всех объектов\n"
+            << "4 - Редактировать трубу\n"
+            << "5 - Редактировать КС\n"
+            << "6 - Удалить трубу\n"
+            << "7 - Удалить КС\n"
+            << "8 - Сохранить\n"
+            << "9 - Загрузить\n"
+            << "10 - Поиск труб\n"
+            << "11 - Поиск КС\n"
+            << "12 - Пакетное редактирование труб\n"
+            << "0 - Выход\n";
+
         cin >> command;
         logger.log("Выбрана команда: " + to_string(command));
 
@@ -93,36 +107,75 @@ int main() {
             }
             break;
         }
-        case 8: {
-            ofstream file("data.txt");
-            for (const auto& pipe : pipes) file << pipe;
-            for (const auto& ks : kss) file << ks;
-            file.close();
-            logger.log("Данные сохранены.");
+        case 8: { // Сохранение данных
+            string filename;
+            cout << "Введите имя файла для сохранения данных (например, data.txt): ";
+            cin >> filename;
+
+            ifstream checkFile(filename);
+            if (checkFile.is_open()) {
+                cout << "Файл " << filename << " уже существует. Перезаписать его? (1 - Да, 0 - Нет): ";
+                int choice;
+                cin >> choice;
+                if (choice != 1) {
+                    cout << "Сохранение отменено." << endl;
+                    logger.log("Сохранение в файл " + filename + " отменено пользователем.");
+                    break;
+                }
+            }
+            checkFile.close();
+
+            ofstream file(filename);
+            if (file.is_open()) {
+                for (const auto& pipe : pipes) file << pipe;
+                for (const auto& ks : kss) file << ks;
+                file.close();
+                cout << "Данные успешно сохранены в файл " << filename << "." << endl;
+                logger.log("Данные сохранены в файл: " + filename);
+            }
+            else {
+                cout << "Ошибка: не удалось открыть файл " << filename << " для записи." << endl;
+                logger.log("Ошибка при сохранении данных в файл: " + filename);
+            }
             break;
         }
         case 9: {
-            ifstream file("data.txt");
-            pipes.clear();
-            kss.clear();
-            while (!file.eof()) {
-                string type;
-                getline(file, type);
-                if (type == "Труба") {
-                    Pipe pipe;
-                    file >> pipe;
-                    pipes.push_back(pipe);
+            string filename;
+            cout << "Введите имя файла для загрузки данных (например, data.txt): ";
+            cin >> filename;
+
+            ifstream file(filename);
+            if (!file.is_open()) {
+                cout << "Ошибка: не удалось открыть файл " << filename << " для чтения." << endl;
+                logger.log("Ошибка при загрузке данных из файла: " + filename);
+                break;
+            }
+
+            while (file) {
+                string line;
+                getline(file, line);
+                if (line == "Труба") {
+                    Pipe newPipe;
+                    file >> newPipe;
+                    pipes.push_back(newPipe);
+                    logger.log("Загружена труба с ID " + to_string(newPipe.getId()) + ".");
                 }
-                else if (type == "КС") {
-                    KS ks;
-                    file >> ks;
-                    kss.push_back(ks);
+                else if (line == "КС") {
+                    KS newKS;
+                    file >> newKS;
+                    kss.push_back(newKS);
+                    logger.log("Загружена КС с ID " + to_string(newKS.getId()) + ".");
                 }
             }
+
             file.close();
-            logger.log("Данные загружены.");
+            cout << "Данные успешно загружены из файла " << filename << "." << endl;
+            logger.log("Данные успешно загружены из файла: " + filename);
             break;
         }
+
+        
+
         case 10: {
             cout << "Выберите фильтр для поиска:\n1 - По названию\n2 - По признаку \"в ремонте\"\n";
             int searchCommand;
@@ -169,6 +222,40 @@ int main() {
             }
             break;
         }
+        case 12: { // Пакетное редактирование труб
+            cout << "Выберите вариант пакетного редактирования:\n1 - Изменить статус всех труб\n2 - Изменить статус определённой трубы\n";
+            int batchCommand;
+            cin >> batchCommand;
+
+            if (batchCommand == 1) { // Редактировать все трубы
+                for (auto& pipe : pipes) {
+                    pipe.toggleRepair();
+                }
+                cout << "Статус всех труб успешно изменён." << endl;
+                logger.log("Статус всех труб изменён.");
+            }
+            else if (batchCommand == 2) { // Редактировать одну трубу по ID
+                int id;
+                cout << "Введите ID трубы для изменения статуса: ";
+                cin >> id;
+                auto it = find_if(pipes.begin(), pipes.end(), [id](const Pipe& p) { return p.getId() == id; });
+                if (it != pipes.end()) {
+                    it->toggleRepair();
+                    cout << "Статус трубы с ID " << id << " успешно изменён." << endl;
+                    logger.log("Статус трубы с ID " + to_string(id) + " изменён.");
+                }
+                else {
+                    cout << "Труба с таким ID не найдена." << endl;
+                    logger.log("Ошибка: неверный ID трубы.");
+                }
+            }
+            else {
+                cout << "Неверный выбор опции." << endl;
+                logger.log("Ошибка: неверный выбор опции пакетного редактирования.");
+            }
+            break;
+        }
+
         case 0:
             logger.log("Завершение работы программы.");
             return 0;

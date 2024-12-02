@@ -7,7 +7,8 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
-#include <cmath> // Для функции abs()
+#include <sstream>
+#include <cmath> 
 
 using namespace std;
 
@@ -15,7 +16,7 @@ using namespace std;
 template <typename T>
 void check_input(T& x, const string& prompt);
 
-// Класс Pipe
+
 class Pipe {
 private:
     static int nextId;
@@ -48,6 +49,7 @@ private:
     int workshops;
     int workshops_in_work;
     double eff;
+    int percent_idle;
 
 public:
     KS();

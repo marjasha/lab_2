@@ -28,6 +28,7 @@ void Pipe::input() {
     check_input(repair, "Труба в ремонте? (1 - да, 0 - нет): ");
 }
 
+
 void Pipe::output() const {
     cout << "ID: " << id << endl;
     cout << "Название: " << kilometr << endl;
@@ -53,19 +54,24 @@ ofstream& operator<<(ofstream& file, const Pipe& p) {
 
 ifstream& operator>>(ifstream& file, Pipe& p) {
     string line;
-    getline(file, line); // "Труба"
+
+
     getline(file, line);
-    istringstream(line.substr(3)) >> p.id;
+    istringstream(line.substr(line.find(' ') + 1)) >> p.id;
     getline(file, line);
-    p.kilometr = line.substr(4);
+    p.kilometr = line.substr(line.find(' ') + 1);
     getline(file, line);
-    istringstream(line.substr(7)) >> p.length;
+    istringstream(line.substr(line.find(' ') + 1)) >> p.length;
     getline(file, line);
-    istringstream(line.substr(9)) >> p.diametr;
+    istringstream(line.substr(line.find(' ') + 1)) >> p.diametr;
     getline(file, line);
-    p.repair = (line.substr(10) == "да");
+    string repairStatus = line.substr(line.find(' ') + 1);
+    p.repair = (repairStatus == "да");
+
     return file;
 }
+
+
 
 KS::KS() : id(nextId++), workshops(0), workshops_in_work(0), eff(0.0) {}
 
@@ -122,20 +128,31 @@ ofstream& operator<<(ofstream& file, const KS& ks) {
 
 ifstream& operator>>(ifstream& file, KS& ks) {
     string line;
-    getline(file, line); // "КС"
+
     getline(file, line);
-    istringstream(line.substr(3)) >> ks.id;
+    istringstream(line.substr(line.find(' ') + 1)) >> ks.id;
+
     getline(file, line);
-    ks.name = line.substr(4);
+    ks.name = line.substr(line.find(' ') + 1);
+
     getline(file, line);
     istringstream(line.substr(17)) >> ks.workshops;
+
     getline(file, line);
     istringstream(line.substr(26)) >> ks.workshops_in_work;
-    getline(file, line); // Процент незадействованных пропускаем
+
+
     getline(file, line);
-    istringstream(line.substr(12)) >> ks.eff;
+    string percentStr = line.substr(line.find(' ') + 1);
+    percentStr.pop_back(); // Убираем символ '%'
+    istringstream(percentStr) >> ks.percent_idle;
+
+    getline(file, line);
+    istringstream(line.substr(line.find(' ') + 1)) >> ks.eff;
+
     return file;
 }
+
 
 // Реализация функций поиска труб
 void searchPipeByName(const vector<Pipe>& pipes, const string& nameFilter) {
