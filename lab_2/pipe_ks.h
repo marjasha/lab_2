@@ -7,6 +7,7 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <cmath> // Для функции abs()
 
 using namespace std;
 
@@ -53,6 +54,7 @@ public:
     void input();
     void output() const;
     void edit();
+    double getIdlePercentage() const;
 
     string getName() const { return name; }
     int getId() const { return id; }
@@ -60,5 +62,11 @@ public:
     friend ofstream& operator<<(ofstream& file, const KS& ks);
     friend ifstream& operator>>(ifstream& file, KS& ks);
 };
+
+// Функции для поиска
+void searchPipeByName(const vector<Pipe>& pipes, const string& nameFilter);
+void searchPipeByRepairStatus(const vector<Pipe>& pipes, bool repairStatus);
+void searchKSByName(const vector<KS>& kss, const string& nameFilter);
+void searchKSByIdlePercentage(const vector<KS>& kss, double percentage);
 
 #endif
