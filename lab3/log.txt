@@ -1,0 +1,358 @@
+Sun Dec 22 03:32:21 2024
+ - Произведён успешный запуск программы!
+Sun Dec 22 03:32:38 2024
+ - Произведён успешный запуск программы!
+Sun Dec 22 03:32:42 2024
+ - Произведён успешный запуск программы!
+Sun Dec 22 03:33:00 2024
+ - Произведён успешный запуск программы!
+Sun Dec 22 03:33:04 2024
+ - Пользователь выбрал действие: 1
+Sun Dec 22 03:33:13 2024
+ - РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІС‹Р±СЂР°Р» РґРµР№СЃС‚РІРёРµ: 1
+Sun Dec 22 03:33:16 2024
+ - РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІРІРµР» РЅР°Р·РІР°РЅРёРµ С‚СЂСѓР±С‹: aws
+Sun Dec 22 03:33:17 2024
+ - Р’РІРµРґРµРЅРѕ Р·РЅР°С‡РµРЅРёРµ: 2,000000
+Sun Dec 22 03:33:17 2024
+ - РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІРІРµР» РґР»РёРЅСѓ С‚СЂСѓР±С‹: 2,000000 РєРј
+Sun Dec 22 03:33:48 2024
+ - Р’РІРµРґРµРЅРѕ Р·РЅР°С‡РµРЅРёРµ: 3,000000
+Sun Dec 22 03:33:48 2024
+ - РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІРІРµР» РґРёР°РјРµС‚СЂ С‚СЂСѓР±С‹: 3,000000 РјРј
+Sun Dec 22 03:33:48 2024
+ - РўСЂСѓР±Р° РґРѕР±Р°РІР»РµРЅР° РІ СЃРёСЃС‚РµРјСѓ. ID: 1
+Sun Dec 22 03:34:41 2024
+ - Произведён успешный запуск программы!
+Sun Dec 22 03:34:44 2024
+ - Пользователь выбрал действие: 8
+Sun Dec 22 03:34:55 2024
+ - Пользователь выбрал действие: 2
+Sun Dec 22 03:34:59 2024
+ - Произведён успешный запуск программы!
+Sun Dec 22 03:35:00 2024
+ - Пользователь выбрал действие: 3
+Sun Dec 22 03:35:00 2024
+ - РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р·Р°РїСЂРѕСЃРёР» СЃРїРёСЃРѕРє С‚СЂСѓР±.
+Sun Dec 22 03:35:00 2024
+ - Отображение всех труб и станций выполнено.
+Sun Dec 22 03:35:04 2024
+ - Произведён успешный запуск программы!
+Sun Dec 22 03:35:05 2024
+ - Пользователь выбрал действие: 4
+Sun Dec 22 03:35:08 2024
+ - Начата операция сохранения в файл: 5.txt
+Sun Dec 22 03:35:08 2024
+ - Успешно сохранено в файл: 5.txt
+Sun Dec 22 03:35:09 2024
+ - Пользователь выбрал действие: 6
+Sun Dec 22 03:35:11 2024
+ - Р’РІРµРґРµРЅРѕ Р·РЅР°С‡РµРЅРёРµ: 7
+Sun Dec 22 03:35:13 2024
+ - Р’РІРµРґРµРЅРѕ Р·РЅР°С‡РµРЅРёРµ: 7
+Sun Dec 22 03:35:15 2024
+ - Пользователь выбрал действие: 8
+Sun Dec 22 03:35:21 2024
+ - Произведён успешный запуск программы!
+Sun Dec 22 03:35:23 2024
+ - Пользователь выбрал действие: 1
+Sun Dec 22 03:54:52 2024
+ - The program has been successfully launched!
+Sun Dec 22 03:54:57 2024
+ - User choice: 1
+Sun Dec 22 03:54:59 2024
+ - User choice: 1
+Sun Dec 22 03:55:01 2024
+ - User entered name of pipe: 1
+Sun Dec 22 03:55:08 2024
+ - Entered value: 3,000000
+Sun Dec 22 03:55:08 2024
+ - User entered length of pipe: 3,000000 km
+Sun Dec 22 03:55:11 2024
+ - Entered value: 5,000000
+Sun Dec 22 03:55:11 2024
+ - User entered diameter of pipe: 5,000000 mm
+Sun Dec 22 03:55:11 2024
+ - Pipe was added. ID: 1
+Sun Dec 22 03:55:14 2024
+ - User choice: 3
+Sun Dec 22 03:55:25 2024
+ - User choice: 1
+Sun Dec 22 03:55:29 2024
+ - User entered name of pipe: S
+Sun Dec 22 03:55:30 2024
+ - Entered value: 2,000000
+Sun Dec 22 03:55:30 2024
+ - User entered length of pipe: 2,000000 km
+Sun Dec 22 03:55:33 2024
+ - Entered value: 2,000000
+Sun Dec 22 03:55:33 2024
+ - User entered diameter of pipe: 2,000000 mm
+Sun Dec 22 03:55:33 2024
+ - Pipe was added. ID: 2
+Sun Dec 22 03:55:40 2024
+ - User choice: 4
+Sun Dec 22 03:55:40 2024
+ - The user displayed the data about the pipe: 1
+Sun Dec 22 03:55:40 2024
+ - The user displayed the data about the pipe: S
+Sun Dec 22 03:55:40 2024
+ - The user requested a list of pipes.
+Sun Dec 22 03:56:03 2024
+ - The program has been successfully launched!
+Sun Dec 22 03:56:11 2024
+ - User choice: 2
+Sun Dec 22 03:56:15 2024
+ - User choice: 1
+Sun Dec 22 03:56:17 2024
+ - User entered new CS name: Q
+Sun Dec 22 03:56:20 2024
+ - Entered value: 3
+Sun Dec 22 03:56:20 2024
+ - User entered amount of workshops of CS: 3
+Sun Dec 22 03:56:23 2024
+ - Entered value: 2
+Sun Dec 22 03:56:23 2024
+ - User entered amount of active workshops of CS: 3
+Sun Dec 22 03:56:26 2024
+ - Entered value: 80,000000
+Sun Dec 22 03:56:26 2024
+ - User entered effective of CS: 3%
+Sun Dec 22 03:56:26 2024
+ - Cs was added. ID: 1
+Sun Dec 22 03:56:30 2024
+ - User choice: 1
+Sun Dec 22 03:56:37 2024
+ - User entered new CS name: W
+Sun Dec 22 03:56:38 2024
+ - Entered value: 1
+Sun Dec 22 03:56:38 2024
+ - User entered amount of workshops of CS: 1
+Sun Dec 22 03:56:42 2024
+ - Entered value: 0
+Sun Dec 22 03:56:42 2024
+ - User entered amount of active workshops of CS: 1
+Sun Dec 22 03:56:45 2024
+ - Entered value: 60,000000
+Sun Dec 22 03:56:45 2024
+ - User entered effective of CS: 1%
+Sun Dec 22 03:56:45 2024
+ - Cs was added. ID: 2
+Sun Dec 22 03:56:59 2024
+ - User choice: 1
+Sun Dec 22 03:57:02 2024
+ - User entered new CS name: E
+Sun Dec 22 03:57:03 2024
+ - Entered value: 2
+Sun Dec 22 03:57:03 2024
+ - User entered amount of workshops of CS: 2
+Sun Dec 22 03:57:04 2024
+ - Entered value: 1
+Sun Dec 22 03:57:04 2024
+ - User entered amount of active workshops of CS: 2
+Sun Dec 22 03:57:05 2024
+ - Entered value: 4,000000
+Sun Dec 22 03:57:05 2024
+ - User entered effective of CS: 2%
+Sun Dec 22 03:57:05 2024
+ - Cs was added. ID: 3
+Sun Dec 22 03:57:08 2024
+ - User choice: 0
+Sun Dec 22 03:57:08 2024
+ - User go to 'Main menu'
+Sun Dec 22 03:57:09 2024
+ - User choice: 1
+Sun Dec 22 03:57:11 2024
+ - User choice: 1
+Sun Dec 22 03:57:21 2024
+ - User entered name of pipe: 1
+Sun Dec 22 03:57:21 2024
+ - Entered value: 12,000000
+Sun Dec 22 03:57:21 2024
+ - User entered length of pipe: 12,000000 km
+Sun Dec 22 03:57:22 2024
+ - Entered value: 2,000000
+Sun Dec 22 03:57:22 2024
+ - User entered diameter of pipe: 2,000000 mm
+Sun Dec 22 03:57:22 2024
+ - Pipe was added. ID: 1
+Sun Dec 22 03:57:24 2024
+ - User choice: 1
+Sun Dec 22 03:57:26 2024
+ - User entered name of pipe: 2
+Sun Dec 22 03:57:27 2024
+ - Entered value: 12,000000
+Sun Dec 22 03:57:27 2024
+ - User entered length of pipe: 12,000000 km
+Sun Dec 22 03:57:28 2024
+ - Entered value: 1,000000
+Sun Dec 22 03:57:28 2024
+ - User entered diameter of pipe: 1,000000 mm
+Sun Dec 22 03:57:28 2024
+ - Pipe was added. ID: 2
+Sun Dec 22 03:57:30 2024
+ - User choice: 1
+Sun Dec 22 03:57:34 2024
+ - User entered name of pipe: 3
+Sun Dec 22 03:57:38 2024
+ - Entered value: 24,000000
+Sun Dec 22 03:57:38 2024
+ - User entered length of pipe: 24,000000 km
+Sun Dec 22 03:57:40 2024
+ - Entered value: 435,000000
+Sun Dec 22 03:57:40 2024
+ - User entered diameter of pipe: 435,000000 mm
+Sun Dec 22 03:57:40 2024
+ - Pipe was added. ID: 3
+Sun Dec 22 03:57:42 2024
+ - User choice: 0
+Sun Dec 22 03:57:42 2024
+ - The user went to the 'Main Menu'
+Sun Dec 22 03:57:48 2024
+ - User choice: 6
+Sun Dec 22 03:57:53 2024
+ - Entered value: 1
+Sun Dec 22 03:57:56 2024
+ - Entered value: 3
+Sun Dec 22 03:58:10 2024
+ - Entered value: 500
+Sun Dec 22 03:58:20 2024
+ - User entered name of pipe: 1
+Sun Dec 22 03:58:30 2024
+ - Entered value: 4687,000000
+Sun Dec 22 03:58:30 2024
+ - User entered length of pipe: 4687,000000 km
+Sun Dec 22 03:58:32 2024
+ - Entered value: 45,000000
+Sun Dec 22 03:58:32 2024
+ - User entered diameter of pipe: 45,000000 mm
+Sun Dec 22 03:58:55 2024
+ - User entered name of pipe: 4
+Sun Dec 22 03:58:58 2024
+ - Entered value: 5676,000000
+Sun Dec 22 03:58:58 2024
+ - User entered length of pipe: 5676,000000 km
+Sun Dec 22 03:59:00 2024
+ - Entered value: 76878,000000
+Sun Dec 22 03:59:00 2024
+ - User entered diameter of pipe: 76878,000000 mm
+Sun Dec 22 03:59:08 2024
+ - User entered name of pipe: 1
+Sun Dec 22 03:59:14 2024
+ - Entered value: 232,000000
+Sun Dec 22 03:59:14 2024
+ - User entered length of pipe: 232,000000 km
+Sun Dec 22 03:59:16 2024
+ - Entered value: 500,000000
+Sun Dec 22 03:59:16 2024
+ - User entered diameter of pipe: 500,000000 mm
+Sun Dec 22 03:59:30 2024
+ - User choice: 1
+Sun Dec 22 03:59:32 2024
+ - User choice: 4
+Sun Dec 22 03:59:32 2024
+ - The user displayed the data about the pipe: 1
+Sun Dec 22 03:59:32 2024
+ - The user displayed the data about the pipe: 1
+Sun Dec 22 03:59:32 2024
+ - The user requested a list of pipes.
+Sun Dec 22 03:59:42 2024
+ - User choice: 1
+Sun Dec 22 03:59:45 2024
+ - User entered name of pipe: 5
+Sun Dec 22 03:59:47 2024
+ - Entered value: 243,000000
+Sun Dec 22 03:59:47 2024
+ - User entered length of pipe: 243,000000 km
+Sun Dec 22 03:59:56 2024
+ - Entered value: 1000,000000
+Sun Dec 22 03:59:56 2024
+ - User entered diameter of pipe: 1000,000000 mm
+Sun Dec 22 03:59:56 2024
+ - Pipe was added. ID: 5
+Sun Dec 22 03:59:58 2024
+ - User choice: 1
+Sun Dec 22 04:00:00 2024
+ - User entered name of pipe: 6
+Sun Dec 22 04:00:02 2024
+ - Entered value: 500,000000
+Sun Dec 22 04:00:02 2024
+ - User entered length of pipe: 500,000000 km
+Sun Dec 22 04:00:05 2024
+ - Entered value: 500,000000
+Sun Dec 22 04:00:05 2024
+ - User entered diameter of pipe: 500,000000 mm
+Sun Dec 22 04:00:05 2024
+ - Pipe was added. ID: 6
+Sun Dec 22 04:00:09 2024
+ - User choice: 1
+Sun Dec 22 04:00:13 2024
+ - User entered name of pipe: 8
+Sun Dec 22 04:00:17 2024
+ - Entered value: 700,000000
+Sun Dec 22 04:00:17 2024
+ - User entered length of pipe: 700,000000 km
+Sun Dec 22 04:00:19 2024
+ - Entered value: 700,000000
+Sun Dec 22 04:00:19 2024
+ - User entered diameter of pipe: 700,000000 mm
+Sun Dec 22 04:00:19 2024
+ - Pipe was added. ID: 7
+Sun Dec 22 04:00:22 2024
+ - User choice: 0
+Sun Dec 22 04:00:22 2024
+ - The user went to the 'Main Menu'
+Sun Dec 22 04:00:26 2024
+ - User choice: 6
+Sun Dec 22 04:00:29 2024
+ - Entered value: 2
+Sun Dec 22 04:00:32 2024
+ - Entered value: 3
+Sun Dec 22 04:00:43 2024
+ - User choice: 2
+Sun Dec 22 04:00:44 2024
+ - User choice: 4
+Sun Dec 22 04:00:44 2024
+ - User check list of CS.
+Sun Dec 22 04:00:49 2024
+ - User choice: 1
+Sun Dec 22 04:00:52 2024
+ - User entered new CS name: 4
+Sun Dec 22 04:00:55 2024
+ - Entered value: 6
+Sun Dec 22 04:00:55 2024
+ - User entered amount of workshops of CS: 6
+Sun Dec 22 04:00:57 2024
+ - Entered value: 4
+Sun Dec 22 04:00:57 2024
+ - User entered amount of active workshops of CS: 6
+Sun Dec 22 04:00:59 2024
+ - Entered value: 67,000000
+Sun Dec 22 04:00:59 2024
+ - User entered effective of CS: 6%
+Sun Dec 22 04:00:59 2024
+ - Cs was added. ID: 4
+Sun Dec 22 04:01:03 2024
+ - User choice: 0
+Sun Dec 22 04:01:03 2024
+ - User go to 'Main menu'
+Sun Dec 22 04:01:04 2024
+ - User choice: 2
+Sun Dec 22 04:01:05 2024
+ - User choice: 4
+Sun Dec 22 04:01:05 2024
+ - User check list of CS.
+Sun Dec 22 04:01:11 2024
+ - User choice: 0
+Sun Dec 22 04:01:11 2024
+ - User go to 'Main menu'
+Sun Dec 22 04:01:13 2024
+ - User choice: 6
+Sun Dec 22 04:01:16 2024
+ - Entered value: 2
+Sun Dec 22 04:01:17 2024
+ - Entered value: 4
+Sun Dec 22 04:01:21 2024
+ - Entered value: 1000
+Sun Dec 22 04:01:29 2024
+ - User choice: 8
